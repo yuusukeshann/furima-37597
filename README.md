@@ -50,7 +50,7 @@
 
   belongs_to :user
   belongs_to :item
-  has_one :shipping_addresses
+  has_one :shipping_address
 
 
 ## shipping_addresses テーブル
@@ -66,4 +66,4 @@
 
 ### Association
 
-  belongs_to :purchase_records
+  belongs_to :purchase_record
