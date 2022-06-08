@@ -2,16 +2,16 @@
 
 ## users テーブル
 
-| Column             | Type    | Options     |
-| ------------------ | ------  | ----------- |
+| Column             | Type    | Options                   |
+| ------------------ | ------  | ------------------------- |
 | nickname           | string  | null: false               |
 | email              | string  | null: false, unique: true |
-| encrypted_password | string  | null: false |
-| family_name        | string  | null: false |
-| first_name         | string  | null: false |
-| family_name_kana   | string  | null: false |
-| first_name_kana    | string  | null: false |
-| birthday           | date    | null: false |
+| encrypted_password | string  | null: false               |
+| family_name        | string  | null: false               |
+| first_name         | string  | null: false               |
+| family_name_kana   | string  | null: false               |
+| first_name_kana    | string  | null: false               |
+| birthday           | date    | null: false               |
 
 
 ### Association
@@ -29,7 +29,7 @@
 | category_id        | integer    | null: false                    |
 | condition_id       | integer    | null: false                    |
 | delivery_charge_id | integer    | null: false                    |
-| Shipping_area_id   | integer    | null: false                    |
+| prefecture_id      | integer    | null: false                    |
 | days_to_ship_id    | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
@@ -37,7 +37,6 @@
 ### Association
 
   belongs_to :user
-  has_one :shipping_address
   has_one :purchase_record
 
 ## purchase_records テーブル
@@ -51,10 +50,10 @@
 
   belongs_to :user
   belongs_to :item
-  has_one :shipping_address
+  has_one :shipping_addresses
 
 
-## shipping_address テーブル
+## shipping_addresses テーブル
 
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
@@ -64,9 +63,7 @@
 | street_number    | string     | null: false                    |
 | building_name    | string     |                                |
 | telephone_number | string     | null: false                    |
-| user             | references | null: false, foreign_key: true |
 
 ### Association
 
-  belongs_to :item
-  belongs_to :purchase_record
+  belongs_to :purchase_records
