@@ -63,6 +63,7 @@
 | street_number    | string     | null: false                    |
 | building_name    | string     |                                |
 | telephone_number | string     | null: false                    |
+| purchase_record  | references | null: false, foreign_key: true |
 
 ### Association
 
