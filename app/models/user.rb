@@ -10,7 +10,6 @@ class User < ApplicationRecord
   # memo validates :first_name,           presence: true
   # memo validates :family_name_kana,     presence: true
   # memo validates :first_name_kana,      presence: true
- 
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角文字を使用してください' } do
     validates :family_name
@@ -22,11 +21,10 @@ class User < ApplicationRecord
     validates :first_name_kana
   end
 
-    VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
-    #  memo VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
-    validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は半角英数字を両方含む必要があります' } 
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  #  memo VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
+  validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は半角英数字を両方含む必要があります' }
 
-  
   has_many :items
   # has_many :purchase_records
 end
