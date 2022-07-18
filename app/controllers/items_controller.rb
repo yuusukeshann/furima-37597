@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    #メモ @item = Item.find(params[:id])
+    # メモ @item = Item.find(params[:id])
     @item.destroy
     redirect_to root_path
   end
@@ -54,9 +54,7 @@ class ItemsController < ApplicationController
     redirect_to action: :index unless user_signed_in? && current_user.id == @item.user_id
   end
 
-
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
