@@ -7,7 +7,7 @@ FactoryBot.define do
     delivery_charge_id      { 2 }
     prefecture_id           { 2 }
     days_to_ship_id         { 2 }
-    # メモ　この書き方だと、idが１の---も選択されてしまい、バリデーションに引っかかるのでidを直接選択。
+    # メモ　下記の書き方だと、idが１の---も選択されてしまい、バリデーションに引っかかるのでidを直接選択。
     # days_to_ship_id         {Category.all.sample}
     price { Faker::Number.between(from: 300, to: 9_999_999) }
     association :user

@@ -9,8 +9,8 @@ class PurchaserecordShippingaddress
     validates :telephone_number, format: {with: /\A\d{10,11}\z/}, length: {maximum: 11}
     validates :user_id
     validates :item_id
+    validates :prefecture_id, numericality: {other_than: 1, message: "can't be blank"}
   end
-  validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
 
   def save
     purchaserecord = PurchaseRecord.create(item_id: item_id, user_id: user_id)
