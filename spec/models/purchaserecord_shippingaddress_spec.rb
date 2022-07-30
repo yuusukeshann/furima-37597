@@ -28,7 +28,7 @@ RSpec.describe PurchaserecordShippingaddress, type: :model do
       it 'post_codeが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
         @purchaserecord_shippingaddress.post_code = '3333333'
         @purchaserecord_shippingaddress.valid?
-        expect(@purchaserecord_shippingaddress.errors.full_messages).to include("Post code is invalid. Include hyphen(-)")
+        expect(@purchaserecord_shippingaddress.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
       end
       it 'prefectureを選択していないと保存できないこと' do
         @purchaserecord_shippingaddress.prefecture_id = ''
@@ -58,12 +58,12 @@ RSpec.describe PurchaserecordShippingaddress, type: :model do
       it 'telephone_numberが全角数字だと保存できないこと' do
         @purchaserecord_shippingaddress.telephone_number = '０１２２９４５５５５'
         @purchaserecord_shippingaddress.valid?
-        expect(@purchaserecord_shippingaddress.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchaserecord_shippingaddress.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'telephone_numberがハイフンを含んでいると保存できないこと' do
         @purchaserecord_shippingaddress.telephone_number = '090-0000-00'
         @purchaserecord_shippingaddress.valid?
-        expect(@purchaserecord_shippingaddress.errors.full_messages).to include("Telephone number is invalid")
+        expect(@purchaserecord_shippingaddress.errors.full_messages).to include('Telephone number is invalid')
       end
       it 'userが紐付いていないと保存できないこと' do
         @purchaserecord_shippingaddress.user_id = nil
@@ -75,7 +75,7 @@ RSpec.describe PurchaserecordShippingaddress, type: :model do
         @purchaserecord_shippingaddress.valid?
         expect(@purchaserecord_shippingaddress.errors.full_messages).to include("Item can't be blank")
       end
-      it "tokenが空では登録できないこと" do
+      it 'tokenが空では登録できないこと' do
         @purchaserecord_shippingaddress.token = nil
         @purchaserecord_shippingaddress.valid?
         expect(@purchaserecord_shippingaddress.errors.full_messages).to include("Token can't be blank")
