@@ -134,14 +134,13 @@
             <div class='item-img-content'>
               <%= image_tag item.image, class: "item-img" %>
          
-         <%# コメントアウトしないとエラーが出たりsold outが表示されてしまうので、商品購入機能実装後に表示いたします。 %>
-          <%# 商品が売れていればsold outを表示しましょう
+         <%# sold out表示 %>
           <% if item.purchase_record %>
-          <%# <div class='sold-out'>
+           <div class='sold-out'>
             <span>Sold Out!!</span>
-          </div> %> 
-          <%# <% end %> 
-          <%# //商品が売れていればsold outを表示しましょう %>
+           </div>  
+          <% end %> 
+          <%# //sold out表示 %>
 
         </div>
         <div class='item-info'> 
