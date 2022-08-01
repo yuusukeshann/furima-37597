@@ -1,13 +1,14 @@
 class PurchaseRecordsController < ApplicationController
   before_action :authenticate_user!, only: [:index]
+  before_action :set_item, only: [:index, :create]
   def index
-    @item = Item.find(params[:item_id])
+    #メモ @item = Item.find(params[:item_id])
     @purchaserecord_shippingaddress = PurchaserecordShippingaddress.new
     redirect_to root_path if @item.purchase_record || (current_user.id == @item.user_id)
   end
 
   def create
-    @item = Item.find(params[:item_id])
+    #メモ @item = Item.find(params[:item_id])
     @purchaserecord_shippingaddress = PurchaserecordShippingaddress.new(purchase_record_params)
     if @purchaserecord_shippingaddress.valid?
       pay_item
@@ -19,6 +20,11 @@ class PurchaseRecordsController < ApplicationController
   end
 
   private
+
+  def set_item
+  @item = Item.find(params[:item_id])
+  end
+
 
   def purchase_record_params
     params.require(:purchaserecord_shippingaddress).permit(:post_code, :prefecture_id, :city, :street_number, :building_name, :telephone_number).merge(
