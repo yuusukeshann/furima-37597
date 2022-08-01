@@ -4,5 +4,4 @@ Rails.application.routes.draw do
   resources :items, only: [:new,:create,:show,:edit,:update,:destroy] do
     resources :purchase_records, only: [:index, :create]
     end
-resources :shipping_adresses, only: :create
 end
